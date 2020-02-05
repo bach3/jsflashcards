@@ -16,11 +16,13 @@
 
 <body>
   <div data-role="page" id="main-page">
-    <div data-role="content">
+    <div data-role="header" data-theme="f" data-position="fixed" data-id="foo" class="ui-header ui-bar-f ui-header-fixed" role="banner">
       <div id="logo-subtext" class="text-color">Flash Cards Manage</div>
       <div id="top_page"></div>
+    </div>
 
-      <div id="cards-header" class="ui-content">
+    <div data-role="content">
+       <div id="cards-header" class="ui-content">
         <div class="ui-grid-solo">
           <div class="ui-block-a">
             <label for="app-title">Flash Cards Title:</label>
@@ -37,52 +39,53 @@
       <div id="cards-content"></div>
 
       <div id="bottom_page"></div>
-      <div data-role="footer" data-position="persistent" class="ui-footer ui-bar-a ui-footer-fixed" role="contentinfo">
-
-        <div class="ui-grid-solo">
-          <a href="#" id="btn_add_card" data-role="button" data-icon="plus" data-theme="a" data-inline="true"
-            class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
-            role="button"><span class="ui-button-icon ui-icon plus"></span><span class="ui-button-icon-space">
-            </span>Add Card</a>
-
-          <a href="#popupBasic" id="btn_save" data-role="button" data-icon="info" data-theme="a" data-inline="true"
-            data-rel="popup"
-            class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
-            role="button"><span class="ui-button-icon ui-icon info"></span><span class="ui-button-icon-space">
-            </span>Save Card</a>
-            <div data-role="popup" id="popupBasic">
-              <p>Saved !</p>
-            </div>
-
-            <a href="#" id="btn_download" data-role="button" data-icon="star" data-theme="a" data-inline="true"
-            class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
-            role="button"><span class="ui-button-icon ui-icon star"></span><span class="ui-button-icon-space">
-            </span>Download(save first!)</a>
-
-            <a href="#" id="btn_load" data-role="button" data-icon="grid" data-theme="a" data-inline="true"
-            class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
-            role="button"><span class="ui-button-icon ui-icon grid"></span><span class="ui-button-icon-space">
-            </span>Load Cards</a>
-            <input type="file" id="cards_file" name="cards_file" style="display:none;" />
-
-            <a href="#top_page" id="btn_top_page" data-role="button" data-icon="arrow-u" data-theme="a" data-inline="true"
-            class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
-            role="button"><span class="ui-button-icon ui-icon arrow-u"></span><span class="ui-button-icon-space">
-            </span>Back to Top</a>
-
-            <a href="#bottom_page" id="btn_bottom_page" data-role="button" data-icon="arrow-d" data-theme="a" data-inline="true"
-            class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
-            role="bottom_page"><span class="ui-button-icon ui-icon arrow-d"></span><span class="ui-button-icon-space">
-            </span>Go to Bottom</a>
-
-            <a  href="index.html" rel="external" data-ajax="false" id="btn_load" data-role="button" data-icon="back" data-theme="a" data-inline="true"
-            class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
-            role="button"><span class="ui-button-icon ui-icon back"></span><span class="ui-button-icon-space">
-            </span>Back to index</a>
-        </div>
-      </div>
-
     </div>
+
+    <div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed" role="contentinfo">
+
+      <div class="ui-grid-solo">
+        <a href="#" id="btn_add_card" data-role="button" data-icon="plus" data-theme="a" data-inline="true"
+          class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
+          role="button"><span class="ui-button-icon ui-icon plus"></span><span class="ui-button-icon-space">
+          </span>Add Card</a>
+
+        <a href="#popupBasic" id="btn_save" data-role="button" data-icon="info" data-theme="a" data-inline="true"
+          data-rel="popup"
+          class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
+          role="button"><span class="ui-button-icon ui-icon info"></span><span class="ui-button-icon-space">
+          </span>Save Card</a>
+          <div data-role="popup" id="popupBasic">
+            <p>Saved !</p>
+          </div>
+
+          <a href="#" id="btn_download" data-role="button" data-icon="star" data-theme="a" data-inline="true"
+          class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
+          role="button"><span class="ui-button-icon ui-icon star"></span><span class="ui-button-icon-space">
+          </span>Download(save first!)</a>
+
+          <a href="#" id="btn_load" data-role="button" data-icon="grid" data-theme="a" data-inline="true"
+          class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
+          role="button"><span class="ui-button-icon ui-icon grid"></span><span class="ui-button-icon-space">
+          </span>Load Cards</a>
+          <input type="file" id="cards_file" name="cards_file" style="display:none;" />
+
+          <a href="#top_page" id="btn_top_page" data-role="button" data-icon="arrow-u" data-theme="a" data-inline="true"
+          class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
+          role="button"><span class="ui-button-icon ui-icon arrow-u"></span><span class="ui-button-icon-space">
+          </span>Back to Top</a>
+
+          <a href="#bottom_page" id="btn_bottom_page" data-role="button" data-icon="arrow-d" data-theme="a" data-inline="true"
+          class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
+          role="bottom_page"><span class="ui-button-icon ui-icon arrow-d"></span><span class="ui-button-icon-space">
+          </span>Go to Bottom</a>
+
+          <a  href="index.html" rel="external" data-ajax="false" id="btn_load" data-role="button" data-icon="back" data-theme="a" data-inline="true"
+          class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
+          role="button"><span class="ui-button-icon ui-icon back"></span><span class="ui-button-icon-space">
+          </span>Back to index</a>
+      </div>
+    </div>
+
   </div>
 </body>
 
