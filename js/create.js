@@ -9,7 +9,7 @@ var app = (function(cardDeck) {
       return ""
       +  "<div role=\"main\" class=\"ui-content\"><div class='ui-grid-solo'>"
       +  "<a href=\"#\" name=\"btn_remove_card\" data-value=\""+ index +"\" data-role=\"button\" data-icon=\"minus\" data-iconpos=\"notext\" data-theme=\"b\" data-inline=\"true\""
-      +  "class=\"ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left\" onclick=\"app.removeCardBtn(this);\" "
+      +  "class=\"ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-btn-right\" onclick=\"app.removeCardBtn(this);\" "
       +  "role=\"button\"><span class=\"ui-button-icon ui-icon minus\"><\/a>"
       +  "<div class='ui-block-a'>"
       +  " <label for='textarea-q"+ index +"'>Question " + (index + 1) + ":<\/label>"
@@ -26,15 +26,14 @@ var app = (function(cardDeck) {
     }
   return {
     init: function() {
-      if (cardsLength == 0 || cardsLength === undefined ){
-        return;
-      }
-
       var output ="";
-      for (var idx = 0; idx < cardsLength; idx++){
-        output += input_card(cards[idx],idx);
+      if (cardsLength == 0 || cardsLength === undefined ){
+        //do nothing
+      } else {
+        for (var idx = 0; idx < cardsLength; idx++){
+          output += input_card(cards[idx],idx);
+        }
       }
-
       $('#cards-content').html(output);
       $('#cards-content').trigger('create');
     },
@@ -58,7 +57,6 @@ var app = (function(cardDeck) {
             cardDeck = jsonObj;
             cards = cardDeck.cards;
             cardsLength = cardDeck.cards.length;
-
             $('#app-title').text(cardDeck.title);
             $('#app-catch-phrase').text(cardDeck.catchPhrase);
             $('#cards_number').val(cardsLength);
@@ -110,13 +108,17 @@ var app = (function(cardDeck) {
     },
     addCard: function() {
       cardsLength = cardsLength + 1;
-      var card = {"question":"Please enter card question","answer":"Please enter card answer"};
+      var card = {"question":"","answer":""};
       cardDeck.cards.push(card);
       cards = cardDeck.cards;
     },
     removeCard: function(target) {
       cardsLength = cardsLength - 1;
-      cardDeck.cards.splice(target,1);
+      if (cardsLength == 0){
+        cardDeck.cards.pop();
+      } else {
+        cardDeck.cards.splice(target,1);
+      }
       cards = cardDeck.cards;
     },
     removeCardBtn: function(obj) {
@@ -151,6 +153,15 @@ $(document).delegate("#main-page",'pageinit', function(event, ui) {
     app.saveCards();
     app.addCard();
     app.init();
+    $('#btn_bottom_page').trigger("click");
   });
 
+  $('#btn_top_page').bind('click',function(event, ui){
+    $.mobile.silentScroll(0);
+  });
+
+  $('#btn_bottom_page').bind('click',function(event, ui){
+    var docY = $( document ).height();
+    $.mobile.silentScroll(docY);
+  });
 });
