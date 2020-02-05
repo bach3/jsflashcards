@@ -1,0 +1,10 @@
+{
+    "title": "Please enter Cards Title",
+    "catchPhrase": "Please enter Cards Phrase",
+    "cards": [
+        {
+            "question": "Please enter card question",
+            "answer": "Please enter card answer"
+        }
+    ]
+}

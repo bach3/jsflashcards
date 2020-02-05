@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JS Flash Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+  <link rel="stylesheet" href="css/app.css" />
+  <link type="image/x-icon" href="favicon.ico" rel="SHORTCUT ICON" />
+  <link rel="apple-touch-icon" href="images/appicon.png" />
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.2.0.min.js"></script>
+  <script src="js/emptycards.js"></script>
+  <script src="js/create.js"></script>
+</head>
+
+<body>
+  <div data-role="page" id="main-page">
+    <div data-role="content">
+      <div id="logo-subtext" class="text-color">Flash Cards Manage</div>
+      <div class="ui-grid-solo">
+        <a href="#" data-role="button" id="btn_save" name="btn_save">Save Cards</a>
+        <a href="#" data-role="button" id="btn_load" name="btn_load">Load Cards</a>
+        <a href="#" data-role="button" id="btn_download" name="btn_download">Download(save first!)</a>
+        <a href="index.html" rel="external" data-ajax="false" data-role="button" data-transition="fade">Back to index</a>
+        <input type="file" id="cards_file" name="cards_file" style="display:none;" />
+        <input type="hidden" id="cards_number" name="cards_number" value="0" />
+      </div>
+
+      <div id="cards-header" class="ui-content">
+        <div class="ui-grid-solo">
+          <div class="ui-block-a">
+            <label for="app-title">Flash Cards Title:</label>
+            <textarea name="app-title" id="app-title"></textarea>
+            <br />
+            <label for="app-catch-phrase">Catch Phrase:</label>
+            <textarea name="app-catch-phrase" id="app-catch-phrase"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div id="cards-content"></div>
+
+      <div id="card-bottom" class="ui-content">
+        <div class="ui-grid-solo">
+          <a href="#" id="btn_add_card" data-role="button" data-icon="plus" data-iconpos="notext" data-theme="b"
+            data-inline="true"
+            class="ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-corner-left"
+            role="button"><span class="ui-button-icon ui-icon plus"></span><span class="ui-button-icon-space">
+            </span>Add Card</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
