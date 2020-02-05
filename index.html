@@ -21,14 +21,17 @@
       <div id="logo-text" class="text-color"><span id="app-title"></span></div>
       <div id="logo-subtext" class="text-color">Flash Cards</div>
       <div id="catch-phrase" class="text-color"><span id="app-catch-phrase"></span></div>
+      <a href="#" data-role="button" id="btn-load" name="btn-load">Load Cards</a>
+      <input type="file" id="cards-file" name="cards-file" style="display:none;" />
       <a href="#main-page" data-role="button" data-transition="flip">Ok, let's do this!</a>
       <a href="#fork-this-page" data-role="button" data-transition="fade">Fork this</a>
+      <a href="create.html" rel="external" data-ajax="false" data-role="button" data-transition="fade">Make Cards</a>
     </div>
   </div>
 
   <div data-role="page" id="main-page">
     <div data-role="header">
-      <a href="index.html" data-icon="refresh">Restart</a>
+      <a href="index.html" data-icon="refresh" class="btn-reset">Restart</a>
       <h1>JS Flash Cards</h1>
       <a id="next-card" data-icon="arrow-r" data-theme="b" data-transition="flip">Next</a>
     </div>
@@ -58,7 +61,7 @@
 
   <div data-role="page" id="resources-page">
     <div data-role="header">
-      <a href="index.html" data-icon="refresh">Restart</a>
+      <a href="index.html" data-icon="refresh" class="btn-reset">Restart</a>
       <h1>JS Flash Cards</h1>
     </div>
     <div data-role="content">

@@ -45,6 +45,41 @@ var app = (function(cardDeck, Showdown) {
     markdownToHTML: function(markdownText) {
       var text = markdownText.replace(new RegExp('\\|', 'g'), '\n');
       return markdownConverter.makeHtml(text);
+    },
+    loadCards: function(cardfile) {
+      var files = cardfile.target.files;
+    
+      for (var idx = 0,f; f = files[idx]; idx++){
+        if (!f.type.match('json.*')){
+          alert('Please load json file');
+          return;
+        }
+
+        var reader = new FileReader();
+        reader.onload = (function(theFile){
+          return function (e){
+            var jsonObj = JSON.parse(e.target.result);//cards contents
+            if (jsonObj === undefined){
+              alert('Could not load JSON\'s Cards File');
+              return;
+            }
+            //update cardDeck
+            cardDeck = jsonObj;
+            cards = cardDeck.cards;
+            cardsLength = cardDeck.cards.length;
+
+            $('#app-title').text(cardDeck.title);
+            $('#app-catch-phrase').text(cardDeck.catchPhrase);
+          };
+        })(f);
+        var rs = reader.readAsText(f);
+      }
+    },
+    getCardTitle: function (){
+      return cardDeck.title;
+    },
+    getCardPhrase: function (){
+      return cardDeck.catchPhrase;
     }
   };
 })(flashcardDeck, Showdown);
@@ -55,8 +90,8 @@ var app = (function(cardDeck, Showdown) {
 $(document).bind('pageinit', function(event, ui) {
   "use strict";
   app.init();
-  $('#app-title').text(flashcardDeck.title);
-  $('#app-catch-phrase').text(flashcardDeck.catchPhrase);
+  $('#app-title').text(app.getCardTitle);
+  $('#app-catch-phrase').text(app.getCardPhrase);
 });
 
 $(document).delegate("#title-page", "pagecreate", function() {
@@ -65,6 +100,10 @@ $(document).delegate("#title-page", "pagecreate", function() {
   if (navigator.userAgent.match(/Android/i)) {
     window.scrollTo(0, 1);
   }
+  $('#btn-load').bind("click",function(event, ui){
+    $('#cards-file').trigger('click');  
+  });
+  $('#cards-file').on("change",app.loadCards);
 });
 
 $(document).delegate("#main-page", "pageinit", function() {
@@ -91,6 +130,9 @@ $(document).delegate("#main-page", "pageinit", function() {
   });
   $(document).delegate('#main-page', 'pageshow', function() {
     nextCard();
+  });
+  $(".btn-reset").bind("click", function(event) {
+    app.init();
   });
 });
 
