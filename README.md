@@ -7,6 +7,10 @@ http://cjus.me/jsflashcards
 
 JSFlashCards uses John Fraser's showdown, a JavaScript port of Markdown. Flash cards exists in a JSON file containing markdown text for both questions and answers. This makes it possible to easily author HTML based flash cards.
 
+## Adding load flashcard and Making flashcard page (2020/02/05-bach3)
+
+In order to load created flashcard and to make new flashcard easily, "Load Cards" function and "Flash Card Manage" page were added. You could edit your flashcard and make new flashcard at "Flash Card Manage" page. At the "index.html", you could load your flashcard by "Load Cards" functions. I still keep the "JS Flash Card" to thank the creation of this apps - cjus.
+
 ## Flashcard format
 
 A flashcard consist of an object entry in the js/cards.js file.
@@ -28,3 +32,5 @@ The following conventions are observed:
 
 In order to support the creation of other flashcard apps, the js/cards.js file contains the application title and catch phrase to display on the start screen.
 Forking this code and replacing the js/cards.js file should go a long way towards repurposing this app.
+
+
