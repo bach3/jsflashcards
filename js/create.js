@@ -1,4 +1,4 @@
-var app = (function(cardDeck) {
+var app = (function(cardDeck,templateCard) {
   "use strict";
 
   var appName = 'Flash Cards Manage',
@@ -108,8 +108,8 @@ var app = (function(cardDeck) {
     },
     addCard: function() {
       cardsLength = cardsLength + 1;
-      var card = {"question":"","answer":""};
-      cardDeck.cards.push(card);
+      //var card = {"question":"","answer":""};
+      cardDeck.cards.push(templateCard);
       cards = cardDeck.cards;
     },
     removeCard: function(target) {
@@ -129,7 +129,7 @@ var app = (function(cardDeck) {
       
     }
   };
-})(flashcardDeck);
+})(flashcardDeck,cardTemplate);
 
 /*
  jQueryMobile event handlers
