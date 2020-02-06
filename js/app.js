@@ -6,7 +6,7 @@ var app = (function(cardDeck, Showdown) {
     cardCount = 0,
     cards = cardDeck.cards,
     cardsLength = cardDeck.cards.length,
-    markdownConverter = new Showdown.converter();
+    markdownConverter = new Showdown.Converter();
 
   function shuffle(array) {
     // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
@@ -82,7 +82,7 @@ var app = (function(cardDeck, Showdown) {
       return cardDeck.catchPhrase;
     }
   };
-})(flashcardDeck, Showdown);
+})(flashcardDeck, showdown);
 
 /*
  jQueryMobile event handlers
