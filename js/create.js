@@ -108,7 +108,6 @@ var app = (function(cardDeck,templateCard) {
     },
     addCard: function() {
       cardsLength = cardsLength + 1;
-      //var card = {"question":"","answer":""};
       cardDeck.cards.push(templateCard);
       cards = cardDeck.cards;
     },
