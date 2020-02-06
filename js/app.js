@@ -111,7 +111,7 @@ $(document).delegate("#title-page", "pagecreate", function() {
 $(document).delegate("#main-page", "pageinit", function() {
   "use strict";
   function nextCard() {
-    $('#flash-card').trigger('collapse');
+    $( "#flash-card" ).collapsible( "collapse" );
     var card = app.getNextCard();
     if (card === undefined) {
       window.location.href = '#resources-page';
