@@ -8,16 +8,16 @@ var app = (function(cardDeck) {
     function input_card(cardItem,index){
       return ""
       +  "<div role=\"main\" class=\"ui-content\"><div class='ui-grid-solo'>"
-      +  "<a href=\"#\" name=\"btn_remove_card\" data-value=\""+ index +"\" data-role=\"button\" data-icon=\"minus\" data-iconpos=\"notext\" data-theme=\"b\" data-inline=\"true\""
-      +  "class=\"ui-widget ui-button-b ui-controlgroup-item ui-button ui-shadow ui-button-inline ui-btn-right\" onclick=\"app.removeCardBtn(this);\" "
-      +  "role=\"button\"><span class=\"ui-button-icon ui-icon minus\"><\/a>"
+      +  "<a href=\"#\" name=\"btn_remove_card\" data-value=\""+ index +"\" data-role=\"button\" data-icon=\"delete\" data-iconpos=\"notext\" data-theme=\"b\" data-inline=\"true\""
+      +  " onclick=\"app.removeCardBtn(this);\" style=\"float:right;\" >"
+      +  "<span class=\"ui-button-icon ui-icon delete\"><\/a>"
       +  "<div class='ui-block-a'>"
       +  " <label for='textarea-q"+ index +"'>Question " + (index + 1) + ":<\/label>"
       +  " <textarea name='textareq"+ index +"' id='textarea-q"+ index +"' style=\"height:50px;\">"
       +  cardItem.question
       +  "<\/textarea>"
       +  " <label for='textarea-a"+ index +"'>Answer:<\/label>"
-      +  "<textarea name='textarea"+ index +"' id='textarea-a"+ index +"' style=\"height:100px;\">"
+      +  " <textarea name='textarea"+ index +"' id='textarea-a"+ index +"' style=\"height:100px;\">"
       +  cardItem.answer
       +  "<\/textarea>"
       +  "<\/div>"
@@ -139,6 +139,7 @@ $(document).delegate("#main-page",'pageinit', function(event, ui) {
   $('#app-title').text(flashcardDeck.title);
   $('#app-catch-phrase').text(flashcardDeck.catchPhrase);
   $('#cards_number').val(flashcardDeck.cards.length);
+  $('#cards_file').parent().hide();
 
   $('#btn_save').bind('click',app.saveCards);
 

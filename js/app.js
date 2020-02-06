@@ -104,6 +104,8 @@ $(document).delegate("#title-page", "pagecreate", function() {
     $('#cards-file').trigger('click');  
   });
   $('#cards-file').on("change",app.loadCards);
+
+  $('#cards-file').parent().hide();
 });
 
 $(document).delegate("#main-page", "pageinit", function() {
